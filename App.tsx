@@ -14,6 +14,9 @@ import {
 import colors from "./src/colors"
 import { Login } from './src/Login/Login';
 
+
+
+
 function App() {
   
 
@@ -22,6 +25,7 @@ function App() {
       <View style={s.MainViewApp}>
 
       <Login />
+    
         
       </View>
       

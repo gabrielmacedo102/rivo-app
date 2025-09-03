@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import colors from '../../colors';
+import { useContext } from 'react';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 
 interface ButtonProps {
@@ -9,9 +11,12 @@ interface ButtonProps {
 }
 
 const ButtonCustom = ({title, onPress = () => {}, style}: ButtonProps) => {
+
+  const {isDarkMode} = useContext(ThemeContext)
+
   return (
     <View>
-      <TouchableOpacity onPress={() => onPress()} style={[s.buttonMain, style]}>
+      <TouchableOpacity onPress={() => onPress()} style={[s.buttonMain, isDarkMode && s.buttonDark, style]}>
         <Text style={s.buttonText}>{title}</Text>
       </TouchableOpacity>
     </View>
@@ -30,6 +35,9 @@ const s = StyleSheet.create({
     color: colors.branco,
     textAlign: "center",
     fontSize: 16
+  },
+  buttonDark: {
+    backgroundColor: colors.azulEscuro
   }
 })
 
