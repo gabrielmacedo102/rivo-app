@@ -13,7 +13,7 @@ import { ButtonCustom } from '../components/Button/ButtonCustom';
 import { useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
-const Login = () => {
+const Login = ({navigation}: any) => {
   const [isDarkMode, setisDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -60,7 +60,7 @@ const Login = () => {
             <ButtonCustom
               style={s.buttonAcessar}
               title="Acessar"
-              onPress={() => {}}
+              onPress={() => {navigation.navigate('PaginaInicial')}}
             />
 
             {/* <ButtonCustom style={s.buttonAcessar} title='ToggleTheme' onPress={() => toggleDarkMode()} />  */}

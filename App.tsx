@@ -1,46 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-
-import { StyleSheet, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  
-} from 'react-native-safe-area-context';
-import colors from "./src/colors"
-import { Login } from './src/Login/Login';
-
-
-
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StyleSheet, View } from "react-native";
+import colors from "./src/colors";
+import { NavigatorComponent } from "./src/Navigation/Navigation";
 
 function App() {
-  
-
   return (
     <SafeAreaProvider>
-      <View style={s.MainViewApp}>
-
-      <Login />
-    
-        
-      </View>
-      
+      <NavigationContainer>
+        <View style={s.MainViewApp}>
+          <NavigatorComponent />
+        </View>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
 
-
-
 const s = StyleSheet.create({
   MainViewApp: {
     flex: 1,
-    backgroundColor: colors.branco
-  }
-})
-
+    backgroundColor: colors.branco,
+  },
+});
 
 export default App;
