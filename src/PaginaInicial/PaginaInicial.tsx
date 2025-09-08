@@ -1,9 +1,37 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import colors from '../colors';
 
+interface OptionProps{
+  id: Number,
+  description: string
+}
+
+
 const PaginaInicial = () => {
+
+  const opcoes = [{id: 1, description: "Relatórios"},{id: 2, description: "Vendas"},{id: 3, description: "Gráficos"},{id: 4, description: "Pedidos"},{id: 5, description: "Mesas"}]
+
+
+  const handleRenderOptions = (item: OptionProps) => {
+
+    return (
+
+      <View style={s.OptionSquare}>
+          <Text style={s.TextOption}>
+            {item.description}
+          </Text>
+      </View>
+    )
+  }
+
+
   return (
     <View style={s.MainView}>
+      <View style={s.MenuView}>
+
+        
+
+      </View>
       <View style={s.HeaderView}>
         <Text style={s.TextTitulo}>Bem vindo, Gabriel!</Text>
         <View style={s.roleView}>
@@ -14,7 +42,13 @@ const PaginaInicial = () => {
         </View>
       </View>
       <View style={s.BodyView}>
-        <Text>Body</Text>
+        <FlatList 
+        style={s.optionsFlatlist}
+        data={opcoes}
+        renderItem={({ item }) => handleRenderOptions(item)}
+        horizontal
+        
+        keyExtractor={item => item.id.toString()}/>
       </View>
       <View style={s.FootterView}>
         <Text>Footer</Text>
@@ -73,6 +107,30 @@ const s = StyleSheet.create({
   },
   TextRole: {
     color: "white"
+  },
+  OptionSquare: {
+    width: 70,
+    height: 70,
+    borderRadius: 10,
+    borderColor: colors.azulClaro,
+    borderWidth: 1,
+    marginHorizontal: 8,
+    marginVertical: 10
+  },
+  optionsFlatlist: {
+  
+  },
+  TextOption: {
+    textAlign: "center",
+    color: colors.azulClaro
+  },
+  MenuView: {
+    width: "40%",
+    height: "100%",
+    position: "absolute",
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    right: 0
   }
 });
 
