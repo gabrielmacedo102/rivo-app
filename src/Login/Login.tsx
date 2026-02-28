@@ -38,7 +38,7 @@ const Login = ({navigation}: any) => {
                 style={s.logo}
                 resizeMode="contain"
               />
-              <Text style={s.logoText}>RIVO (remake - branch teste)XTESTE</Text>
+              <Text style={s.logoText}>RIVO</Text>
             </View>
 
             <LoginInputNumeric
